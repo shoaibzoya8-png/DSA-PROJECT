@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shoply | Modern Ecommerce Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="announcement">Free delivery on orders over Rs 5000! 🚚</div>
+
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <div class="logo"><a href="#/">Shoply<span>.</span></a></div>
+            <div class="search-container">
+                <div class="search-box">
+                    <input id="searchInput" placeholder="Search for products, brands and more...">
+                    <button id="searchBtn">Search</button>
+                </div>
+                <div id="suggestionsBox" class="hidden"></div>
+            </div>
+            <div class="header-actions">
+                <select id="sortSelect" class="header-select">
+                    <option value="default">Sort: Newest</option>
+                    <option value="price">Price: Low to High</option>
+                </select>
+                <button id="loginBtn" class="login-btn">Sign In</button>
+                <button id="cartBtn" class="cart-btn">🛒 <span id="cartCount">0</span></button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="#/" class="nav-link">Home</a>
+            <a href="#/products" class="nav-link">Shop All</a>
+            <a href="#/about" class="nav-link">About Us</a>
+            <a href="#/contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main id="appRoot"><div id="view"></div></main>
+
+    <!-- LOGIN MODAL (FIXED LABELS) -->
+    <div id="loginModal" class="modal hidden">
+        <div class="login-card">
+            <button class="close-modal" id="closeLogin">✕</button>
+            <h2>Login to Shoply</h2>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="loginEmail" placeholder="admin@shoply.com">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="loginPass" placeholder="Password">
+            </div>
+            <button class="btn-primary" id="submitLogin">Sign In</button>
+        </div>
+    </div>
+
+    <!-- CART SIDEBAR (MATCHES SCREENSHOT) -->
+    <aside id="cartPanel" class="cart-sidebar hidden">
+        <div class="cart-header">
+            <h3 id="cartHeaderTitle">My Cart (0)</h3>
+            <button id="closeCart">✕</button>
+        </div>
+        <div id="cartItems"></div>
+        <div id="cartFooter" class="cart-footer">
+            <div class="total-row">Total: <span id="cartTotal">Rs 0</span></div>
+            <button class="btn-primary" onclick="alert('Order placed!')">Checkout Now</button>
+        </div>
+    </aside>
+
+    <script src="app.js"></script>
+</body>
+</html>
