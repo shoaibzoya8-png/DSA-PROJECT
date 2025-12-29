@@ -3,75 +3,103 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shoply | Modern Ecommerce Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Shoply – Modern Professional Store</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="announcement">Free delivery on orders over Rs 5000! 🚚</div>
-
+    <!-- HEADER SECTION -->
     <header class="topbar">
         <div class="container topbar-inner">
-            <div class="logo"><a href="#/">Shoply<span>.</span></a></div>
-            <div class="search-container">
-                <div class="search-box">
-                    <input id="searchInput" placeholder="Search for products, brands and more...">
-                    <button id="searchBtn">Search</button>
-                </div>
-                <div id="suggestionsBox" class="hidden"></div>
+            <!-- Brand Logo -->
+            <div class="logo"><a href="#/">Shoply</a></div>
+            
+            <!-- SEARCH AREA (With Autocomplete and Sort) -->
+            <div class="search" style="position: relative;">
+                <input id="searchInput" placeholder="Search for clothing, electronics, watches...">
+                <button id="searchBtn">Search</button>
+                
+                <!-- Autocomplete suggestions box now correctly placed inside search container -->
+                <div id="suggestionsBox" class="hidden" style="position: absolute; top: 100%; left: 0; background: white; border: 1px solid #ddd; z-index: 500; width: 100%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"></div>
             </div>
-            <div class="header-actions">
-                <select id="sortSelect" class="header-select">
-                    <option value="default">Sort: Newest</option>
-                    <option value="price">Price: Low to High</option>
+
+            <!-- ACTION BUTTONS -->
+            <div class="actions">
+                <!-- Merge Sort Integrated into Header -->
+                <select id="sortSelect" style="padding: 8px; border-radius: 5px; border: 1px solid #ddd; cursor: pointer; font-size: 13px;">
+                    <option value="default">Sort By</option>
+                    <option value="price">Price: Low to High (Merge Sort)</option>
                 </select>
-                <button id="loginBtn" class="login-btn">Sign In</button>
-                <button id="cartBtn" class="cart-btn">🛒 <span id="cartCount">0</span></button>
+
+                <select id="currencySelect" style="padding: 8px; border-radius: 5px; border: 1px solid #ddd;">
+                    <option value="PKR">PKR</option>
+                    <option value="USD">USD</option>
+                </select>
+                
+                <button id="loginBtn" class="nav-icon-btn">Sign In</button>
+                <button class="nav-icon-btn">♡</button>
+                <button id="cartBtn" class="nav-icon-btn">🛒 <span id="cartCount">0</span></button>
             </div>
         </div>
     </header>
 
+    <!-- NAVIGATION LINKS -->
     <nav class="site-nav">
         <div class="container">
             <a href="#/" class="nav-link">Home</a>
-            <a href="#/products" class="nav-link">Shop All</a>
+            <a href="#/products" class="nav-link">Products</a>
             <a href="#/about" class="nav-link">About Us</a>
             <a href="#/contact" class="nav-link">Contact</a>
         </div>
     </nav>
 
-    <main id="appRoot"><div id="view"></div></main>
+    <!-- MAIN VIEW AREA -->
+    <main id="appRoot">
+        <!-- Javascript will inject Home, Products, About, or Contact views here -->
+        <div id="view"></div>
+    </main>
 
-    <!-- LOGIN MODAL (FIXED LABELS) -->
+    <!-- LOGIN MODAL (Matches your provided layout) -->
     <div id="loginModal" class="modal hidden">
         <div class="login-card">
             <button class="close-modal" id="closeLogin">✕</button>
-            <h2>Login to Shoply</h2>
+            <h2>Login</h2>
             <div class="input-group">
-                <label>Email Address</label>
-                <input type="email" id="loginEmail" placeholder="admin@shoply.com">
+                <label>Email</label>
+                <input type="email" placeholder="Email">
             </div>
             <div class="input-group">
                 <label>Password</label>
-                <input type="password" id="loginPass" placeholder="Password">
+                <div class="password-wrapper">
+                    <input type="password" placeholder="Password">
+                </div>
             </div>
-            <button class="btn-primary" id="submitLogin">Sign In</button>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+            <button class="btn-blue-submit">Login</button>
+            <p class="signup-text">No account? <a href="#">Sign up</a></p>
         </div>
     </div>
 
-    <!-- CART SIDEBAR (MATCHES SCREENSHOT) -->
+    <!-- SHOPPING BAG SIDEBAR -->
     <aside id="cartPanel" class="cart-sidebar hidden">
         <div class="cart-header">
-            <h3 id="cartHeaderTitle">My Cart (0)</h3>
+            <h3>Your Bag</h3>
             <button id="closeCart">✕</button>
         </div>
         <div id="cartItems"></div>
-        <div id="cartFooter" class="cart-footer">
+        <div class="cart-footer">
             <div class="total-row">Total: <span id="cartTotal">Rs 0</span></div>
-            <button class="btn-primary" onclick="alert('Order placed!')">Checkout Now</button>
+            <button class="btn-blue-submit">Checkout</button>
         </div>
     </aside>
 
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2024 Shoply Pakistan. Dolmen Mall, Karachi Headquarters.</p>
+        </div>
+    </footer>
+
+    <!-- Main Javascript -->
     <script src="app.js"></script>
 </body>
 </html>
